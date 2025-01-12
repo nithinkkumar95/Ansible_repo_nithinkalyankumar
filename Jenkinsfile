@@ -1,11 +1,11 @@
 pipeline {
-    agent { label 'slave2' }
+    agent { label 'server1' }
     stages {
         stage('Node_Exporter Installation') {
             steps {
                 sh '''
                 export ANSIBLE_HOST_KEY_CHECKING=False
-                ansible-playbook -i /etc/ansible/hosts /home/ubuntu/prometheus.yml -vvv
+                ansible-playbook -i /etc/ansible/hosts /root/prometheus.yml -vvv
                 '''
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh '''
                 export ANSIBLE_HOST_KEY_CHECKING=False
-                ansible-playbook -i /etc/ansible/hosts /home/ubuntu/prometheus.yml -vvv
+                ansible-playbook -i /etc/ansible/hosts /root/prometheus.yml -vvv
                 '''
             }
         }
